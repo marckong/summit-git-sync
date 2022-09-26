@@ -1,0 +1,519 @@
+_id: spc_57028594c46f4c7983afbeb22d3990f6
+type: ApiSpec
+parentId: wrk_e5e3d6842b8f44d69bda1d06b13782d0
+modified: 1664217745075
+created: 1664217366862
+fileName: pizza-api.yaml
+contents: >
+  openapi: 3.0.3
+
+  info:
+    title: ''
+    version: 0.0.0
+  paths:
+    /api/schema/:
+      get:
+        operationId: api_schema_retrieve
+        description: |-
+          OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+          - YAML: application/vnd.oai.openapi
+          - JSON: application/vnd.oai.openapi+json
+        parameters:
+        - in: query
+          name: format
+          schema:
+            type: string
+            enum:
+            - json
+            - yaml
+        - in: query
+          name: lang
+          schema:
+            type: string
+            enum:
+            - af
+            - ar
+            - ar-dz
+            - ast
+            - az
+            - be
+            - bg
+            - bn
+            - br
+            - bs
+            - ca
+            - cs
+            - cy
+            - da
+            - de
+            - dsb
+            - el
+            - en
+            - en-au
+            - en-gb
+            - eo
+            - es
+            - es-ar
+            - es-co
+            - es-mx
+            - es-ni
+            - es-ve
+            - et
+            - eu
+            - fa
+            - fi
+            - fr
+            - fy
+            - ga
+            - gd
+            - gl
+            - he
+            - hi
+            - hr
+            - hsb
+            - hu
+            - hy
+            - ia
+            - id
+            - ig
+            - io
+            - is
+            - it
+            - ja
+            - ka
+            - kab
+            - kk
+            - km
+            - kn
+            - ko
+            - ky
+            - lb
+            - lt
+            - lv
+            - mk
+            - ml
+            - mn
+            - mr
+            - ms
+            - my
+            - nb
+            - ne
+            - nl
+            - nn
+            - os
+            - pa
+            - pl
+            - pt
+            - pt-br
+            - ro
+            - ru
+            - sk
+            - sl
+            - sq
+            - sr
+            - sr-latn
+            - sv
+            - sw
+            - ta
+            - te
+            - tg
+            - th
+            - tk
+            - tr
+            - tt
+            - udm
+            - uk
+            - ur
+            - uz
+            - vi
+            - zh-hans
+            - zh-hant
+        tags:
+        - api
+        security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+        responses:
+          '200':
+            content:
+              application/vnd.oai.openapi:
+                schema:
+                  type: object
+                  additionalProperties: {}
+              application/yaml:
+                schema:
+                  type: object
+                  additionalProperties: {}
+              application/vnd.oai.openapi+json:
+                schema:
+                  type: object
+                  additionalProperties: {}
+              application/json:
+                schema:
+                  type: object
+                  additionalProperties: {}
+            description: ''
+    /chef/pizza:
+      get:
+        operationId: chef_pizza_list
+        tags:
+        - chef
+        responses:
+          '200':
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Pizza'
+            description: ''
+    /chef/pizza/{id}:
+      put:
+        operationId: chef_pizza_update
+        parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+        tags:
+        - chef
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pizza'
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: '#/components/schemas/Pizza'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/Pizza'
+          required: true
+        security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+        responses:
+          '200':
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Pizza'
+            description: ''
+      patch:
+        operationId: chef_pizza_partial_update
+        parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+        tags:
+        - chef
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchedPizza'
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: '#/components/schemas/PatchedPizza'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/PatchedPizza'
+        security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+        responses:
+          '200':
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Pizza'
+            description: ''
+    /chef/pizza/{id}/delete:
+      delete:
+        operationId: chef_pizza_delete_destroy
+        parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+        tags:
+        - chef
+        security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+        responses:
+          '204':
+            description: No response body
+    /chef/pizza/create:
+      post:
+        operationId: chef_pizza_create_create
+        tags:
+        - chef
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pizza'
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: '#/components/schemas/Pizza'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/Pizza'
+          required: true
+        security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+        responses:
+          '201':
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Pizza'
+            description: ''
+    /chef/pizza/view/{id}:
+      get:
+        operationId: chef_pizza_view_retrieve
+        parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+        tags:
+        - chef
+        security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+        responses:
+          '200':
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Pizza'
+            description: ''
+    /owner/toppings:
+      get:
+        operationId: owner_toppings_list
+        tags:
+        - owner
+        security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+        responses:
+          '200':
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Toppings'
+            description: ''
+    /owner/toppings/{id}:
+      put:
+        operationId: owner_toppings_update
+        parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+        tags:
+        - owner
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Toppings'
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: '#/components/schemas/Toppings'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/Toppings'
+          required: true
+        security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+        responses:
+          '200':
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Toppings'
+            description: ''
+      patch:
+        operationId: owner_toppings_partial_update
+        parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+        tags:
+        - owner
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchedToppings'
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: '#/components/schemas/PatchedToppings'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/PatchedToppings'
+        security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+        responses:
+          '200':
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Toppings'
+            description: ''
+    /owner/toppings/{id}/delete:
+      delete:
+        operationId: owner_toppings_delete_destroy
+        parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+        tags:
+        - owner
+        security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+        responses:
+          '204':
+            description: No response body
+    /owner/toppings/create:
+      post:
+        operationId: owner_toppings_create_create
+        tags:
+        - owner
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Toppings'
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: '#/components/schemas/Toppings'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/Toppings'
+          required: true
+        security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+        responses:
+          '201':
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Toppings'
+            description: ''
+    /owner/toppings/view/{id}:
+      get:
+        operationId: owner_toppings_view_retrieve
+        parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+        tags:
+        - owner
+        security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+        responses:
+          '200':
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Toppings'
+            description: ''
+  components:
+    schemas:
+      PatchedPizza:
+        type: object
+        properties:
+          id:
+            type: integer
+            readOnly: true
+          name:
+            type: string
+            maxLength: 60
+          toppings:
+            type: array
+            items:
+              type: integer
+      PatchedToppings:
+        type: object
+        properties:
+          id:
+            type: integer
+            readOnly: true
+          name:
+            type: string
+            maxLength: 60
+      Pizza:
+        type: object
+        properties:
+          id:
+            type: integer
+            readOnly: true
+          name:
+            type: string
+            maxLength: 60
+          toppings:
+            type: array
+            items:
+              type: integer
+        required:
+        - id
+        - name
+        - toppings
+      Toppings:
+        type: object
+        properties:
+          id:
+            type: integer
+            readOnly: true
+          name:
+            type: string
+            maxLength: 60
+        required:
+        - id
+        - name
+    securitySchemes:
+      basicAuth:
+        type: http
+        scheme: basic
+      cookieAuth:
+        type: apiKey
+        in: cookie
+        name: sessionid
+contentType: yaml

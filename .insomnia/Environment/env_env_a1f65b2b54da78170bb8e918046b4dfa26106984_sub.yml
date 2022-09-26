@@ -1,0 +1,26 @@
+_id: env_env_a1f65b2b54da78170bb8e918046b4dfa26106984_sub
+type: Environment
+parentId: env_a1f65b2b54da78170bb8e918046b4dfa26106984
+modified: 1664217479931
+created: 1664217376868
+name: OpenAPI env
+data:
+  scheme: http
+  base_path: ""
+  host: example.com
+  sessionid: sessionid
+  httpUsername: username
+  httpPassword: password
+  base_url: desolate-inlet-48037.herokuapp.com
+dataPropertyOrder:
+  "&":
+    - scheme
+    - base_path
+    - host
+    - sessionid
+    - httpUsername
+    - httpPassword
+    - base_url
+color: null
+isPrivate: false
+metaSortKey: 1664217376868

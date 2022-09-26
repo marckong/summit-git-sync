@@ -1,0 +1,34 @@
+_id: req_wrk_e5e3d6842b8f44d69bda1d06b13782d044d5fb20
+type: Request
+parentId: wrk_e5e3d6842b8f44d69bda1d06b13782d0
+modified: 1664217376863
+created: 1664217376863
+url: "{{ base_url }}/owner/toppings/create"
+name: /owner/toppings/create
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+      "name": "string"
+    }
+parameters: []
+headers:
+  - name: Cookie
+    disabled: false
+    value: sessionid={{ sessionid }}
+  - name: Content-Type
+    value: application/json
+authentication:
+  type: basic
+  username: "{{ httpUsername }}"
+  password: "{{ httpPassword }}"
+metaSortKey: -1664217376863
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,27 @@
+_id: req_wrk_e5e3d6842b8f44d69bda1d06b13782d03793335e
+type: Request
+parentId: wrk_e5e3d6842b8f44d69bda1d06b13782d0
+modified: 1664217376866
+created: 1664217376866
+url: "{{ base_url }}/chef/pizza/{{ id }}/delete"
+name: /chef/pizza/{id}/delete
+description: ""
+method: DELETE
+body: {}
+parameters: []
+headers:
+  - name: Cookie
+    disabled: false
+    value: sessionid={{ sessionid }}
+authentication:
+  type: basic
+  username: "{{ httpUsername }}"
+  password: "{{ httpPassword }}"
+metaSortKey: -1664217376866
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

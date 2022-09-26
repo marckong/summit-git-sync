@@ -1,0 +1,37 @@
+_id: req_wrk_e5e3d6842b8f44d69bda1d06b13782d00ad6c029
+type: Request
+parentId: wrk_e5e3d6842b8f44d69bda1d06b13782d0
+modified: 1664217376866
+created: 1664217376866
+url: "{{ base_url }}/chef/pizza/{{ id }}"
+name: /chef/pizza/{id}
+description: ""
+method: PATCH
+body:
+  mimeType: application/json
+  text: |-
+    {
+      "name": "string",
+      "toppings": [
+        0
+      ]
+    }
+parameters: []
+headers:
+  - name: Cookie
+    disabled: false
+    value: sessionid={{ sessionid }}
+  - name: Content-Type
+    value: application/json
+authentication:
+  type: basic
+  username: "{{ httpUsername }}"
+  password: "{{ httpPassword }}"
+metaSortKey: -1664217376866
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

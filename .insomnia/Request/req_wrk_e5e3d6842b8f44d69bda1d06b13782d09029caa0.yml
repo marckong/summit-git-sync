@@ -1,0 +1,21 @@
+_id: req_wrk_e5e3d6842b8f44d69bda1d06b13782d09029caa0
+type: Request
+parentId: wrk_e5e3d6842b8f44d69bda1d06b13782d0
+modified: 1664217376867
+created: 1664217376867
+url: "{{ base_url }}/chef/pizza"
+name: /chef/pizza
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1664217376867
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

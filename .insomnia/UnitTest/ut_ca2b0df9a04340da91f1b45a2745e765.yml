@@ -1,0 +1,56 @@
+_id: ut_ca2b0df9a04340da91f1b45a2745e765
+type: UnitTest
+parentId: uts_629656b484f74777bca124e0a66f51d1
+modified: 1664217871680
+created: 1664217773771
+requestId: req_wrk_e5e3d6842b8f44d69bda1d06b13782d09029caa0
+name: should return the pizza with the valid schema
+code: |-
+  const response1 = await insomnia.send();
+  expect(response1.status).to.equal(200);
+
+  const mock = JSON.stringify([
+  	{
+  		"id": 5,
+  		"name": "Sweet n salty",
+  		"toppings": [
+  			6,
+  			7
+  		]
+  	},
+  	{
+  		"id": 2,
+  		"name": "Supreme",
+  		"toppings": [
+  			6,
+  			7,
+  			8,
+  			9,
+  			10,
+  			11,
+  			12
+  		]
+  	},
+  	{
+  		"id": 9,
+  		"name": "Hawaiin",
+  		"toppings": [
+  			7
+  		]
+  	},
+  	{
+  		"id": 11,
+  		"name": "Sardine Surprise",
+  		"toppings": []
+  	},
+  	{
+  		"id": 6,
+  		"name": "Best pizza",
+  		"toppings": [
+  			7,
+  			8,
+  			12
+  		]
+  	}
+  ]);
+  expect(response1.data).to.equal(mock);
